@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  background: $background-color !important;
+}
+
+.card {
+  background: $surface-color !important;
+}
+
+.image-logo {
+  width: 100%;
+  display: block;
+  img {
+    width: 200px;
+    display: block;
+    margin: auto;
+  }
+}
