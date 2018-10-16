@@ -14,7 +14,22 @@
 
 Route::get('/', function () {
   return view('home');
-});
+})->name('home');
+Route::get('/transportasi', function () {
+  return view('transportasi');
+})->name('transportasi');
+
+Route::get('/objek-wisata', function () {
+  return view('objek_wisata');
+})->name('objek_wisata');
+
+Route::get('/kuliner', function () {
+  return view('kuliner');
+})->name('kuliner');
+
+Route::get('/souvenir', function () {
+  return view('souvenir');
+})->name('souvenir');
 
 Route::get('/login', function () {
     return view('login');

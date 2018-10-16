@@ -10,27 +10,27 @@
     </li>
     <li class="sidebar__item">
       <div class="sidebar__link__wrapper">
-        <a href="" class="sidebar__link">Akomodasi</a>
+        <a href="{{ route('home') }}" class="sidebar__link">Akomodasi</a>
       </div>
     </li>
     <li class="sidebar__item">
       <div class="sidebar__link__wrapper">
-        <a href="" class="sidebar__link">Objek Wisata</a>
+        <a href="{{ route('objek_wisata') }}" class="sidebar__link">Objek Wisata</a>
       </div>
     </li>
     <li class="sidebar__item">
       <div class="sidebar__link__wrapper">
-        <a href="" class="sidebar__link">Kuliner</a>
+        <a href="{{ route('kuliner') }}" class="sidebar__link">Kuliner</a>
       </div>
     </li>
     <li class="sidebar__item">
       <div class="sidebar__link__wrapper">
-        <a href="" class="sidebar__link">Transportasi</a>
+        <a href="{{ route('transportasi') }}" class="sidebar__link">Transportasi</a>
       </div>
     </li>
     <li class="sidebar__item">
       <div class="sidebar__link__wrapper">
-        <a href="" class="sidebar__link">Souvenir</a>
+        <a href="{{ route('souvenir') }}" class="sidebar__link">Souvenir</a>
       </div>
     </li>
 
