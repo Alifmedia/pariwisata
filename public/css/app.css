@@ -16,9 +16,13 @@
 }
 
 .image-logo img {
-  width: 200px;
+  width: 140px;
   display: block;
-  margin: auto;
+  margin: 10px auto;
+}
+
+.form-control:disabled {
+  background-color: #e4e1e1 !important;
 }
 
 #sidebar {

@@ -1,6 +1,6 @@
 <div class="sidebar-wrapper">
   <div class="image-logo">
-    <img src="{{ asset('img/logo.png') }}" alt="Card image cap">
+    <img class="rounded-circle" src="{{ asset('img/logo1.jpg') }}" alt="Card image cap">
   </div>
   <ul class="sidebar">
     <li class="sidebar__item sidebar__header">
@@ -31,6 +31,22 @@
     <li class="sidebar__item">
       <div class="sidebar__link__wrapper">
         <a href="{{ route('souvenir') }}" class="sidebar__link">Souvenir</a>
+      </div>
+    </li>
+
+    <li class="sidebar__item sidebar__header">
+      <div class="sidebar__header_wrapper">
+        <a>PELAKU PARIWISATA</a>
+      </div>
+    </li>
+    <li class="sidebar__item">
+      <div class="sidebar__link__wrapper">
+        <a href="{{ route('home') }}" class="sidebar__link">Pramuwisata</a>
+      </div>
+    </li>
+    <li class="sidebar__item">
+      <div class="sidebar__link__wrapper">
+        <a href="{{ route('home') }}" class="sidebar__link">Sanggar Seni</a>
       </div>
     </li>
 

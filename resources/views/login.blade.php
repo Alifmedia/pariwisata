@@ -7,13 +7,12 @@
     <div class="card">
       <div class="card-body">
         <div class="image-logo">
-          <img src="{{ asset('img/logo.png') }}" alt="Card image cap">
+          <img src="{{ asset('img/logo1.jpg') }}" alt="Card image cap">
         </div>
         <form>
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <label for="exampleInputEmail1">Username</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Username">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
@@ -31,18 +30,11 @@
 
   <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img class="d-block" src="{{ asset('img/background1.jpg') }}" alt="First slide">
-      </div>
-      <div class="carousel-item">
-        <img class="d-block" src="{{ asset('img/background2.jpg') }}" alt="Second slide">
-      </div>
-      <div class="carousel-item">
-        <img class="d-block" src="{{ asset('img/background3.jpg') }}" alt="Third slide">
-      </div>
-      <div class="carousel-item">
-        <img class="d-block" src="{{ asset('img/background4.jpg') }}" alt="Forth slide">
-      </div>
+      @for ($i=0; $i < 10; $i++)
+        <div class="carousel-item {{ $i == 0 ? 'active' : ''}}">
+          <img class="d-block" src="{{ asset('slide/background'.$i.'.jpg') }}" alt="Slide {{$i}}">
+        </div>
+      @endfor
     </div>
   </div>
 

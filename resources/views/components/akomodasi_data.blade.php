@@ -15,21 +15,18 @@
       <div class="form-group">
         <label for="filter1">Tipe</label>
         <select class="form-control" id="filter1">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+          <option value="All">All</option>
+          <option value="Hotel">Hotel</option>
+          <option value="Losmen">Losmen</option>
+          <option value="Wisma">Wisma</option>
+          <option value="Guesthost">Guesthost</option>
+          <option value="Homestay">Homestay</option>
         </select>
       </div>
       <div class="form-group">
         <label for="filter2">Level</label>
         <select class="form-control" id="filter2">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+
         </select>
       </div>
       <div class="form-group">
@@ -58,11 +55,9 @@
       <div class="form-group">
         <label for="filter5">Status</label>
         <select class="form-control" id="filter5">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+          <option>Aktif</option>
+          <option>Tidak Aktif</option>
+          <option>Proses Izin</option>
         </select>
       </div>
       <div class="form-group">
