@@ -12,9 +12,10 @@
 */
 
 
-Route::get('/', function () {
-  return view('home');
-})->name('home');
+Route::get('/akomodasi', function () {
+  return view('akomodasi');
+})->name('akomodasi');
+
 Route::get('/transportasi', function () {
   return view('transportasi');
 })->name('transportasi');
@@ -31,6 +32,6 @@ Route::get('/souvenir', function () {
   return view('souvenir');
 })->name('souvenir');
 
-Route::get('/login', function () {
+Route::get('/', function () {
     return view('login');
 });

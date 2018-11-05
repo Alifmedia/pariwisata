@@ -27,4 +27,25 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $table = 'USER';
+    protected $primaryKey = 'user_id';
+    public $timestamps = false;
+
+    //one to many
+    public function DataKunjungan()
+    {
+      return $this->hasMany('App\DataKunjungan', 'user_id', 'datkun_id');
+    }
+
+    public function DataHunian()
+    {
+      return $this->hasMany('App\DataHunian', 'user_id', 'dathuni_id');
+    }
+
+    // one to many (inverse)
+    public function Role()
+    {
+      return $this->belongsTo('App\Role', 'user_id', 'role_id');
+    }
 }

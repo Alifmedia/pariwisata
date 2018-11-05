@@ -1,15 +1,15 @@
 $('.carousel').carousel();
 
 // delete soon
-$filterTipe = $('#filter1 option');
+$filterTipe = $('.akomodasi .data #filter1 option');
 // $valueFilterTipe = $filterTipe.val();
-$filterLevel = $('#filter2');
+$filterLevel = $('.akomodasi .data #filter2');
 $options = '<option>Pilih Tipe</option>';
 $filterLevel.html($options);
 $filterLevel.prop('disabled', true);
 
 
-$('#filter1').on('change', function () {
+$('.akomodasi .data #filter1').on('change', function () {
   $valueFilterTipe = $(this).find(':selected').val();
   console.log($valueFilterTipe);
   if ($valueFilterTipe == 'All') {

@@ -13,7 +13,7 @@
   {{-- <div class="filter__input"> --}}
     <div class="filter__input__sub">
       <div class="form-group">
-        <label for="filter1">Nama Akomodasi</label>
+        <label for="filter1">Tipe</label>
         <select class="form-control" id="filter1">
           <option>1</option>
           <option>2</option>
@@ -23,7 +23,7 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="filter2">Asal</label>
+        <label for="filter2">Level</label>
         <select class="form-control" id="filter2">
           <option>1</option>
           <option>2</option>
@@ -33,7 +33,7 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="filter3">Negara</label>
+        <label for="filter3">Kecamatan</label>
         <select class="form-control" id="filter3">
           <option>1</option>
           <option>2</option>
@@ -46,7 +46,7 @@
 
     <div class="filter__input__sub">
       <div class="form-group">
-        <label for="filter4">Provinsi</label>
+        <label for="filter4">Gampong</label>
         <select class="form-control" id="filter4">
           <option>1</option>
           <option>2</option>
@@ -56,7 +56,7 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="filter5">Periode</label>
+        <label for="filter5">Status</label>
         <select class="form-control" id="filter5">
           <option>1</option>
           <option>2</option>
@@ -66,7 +66,7 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="filter6">Status</label>
+        <label for="filter6">Kategori</label>
         <select class="form-control" id="filter6">
           <option>1</option>
           <option>2</option>

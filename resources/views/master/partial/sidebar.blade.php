@@ -10,7 +10,7 @@
     </li>
     <li class="sidebar__item">
       <div class="sidebar__link__wrapper">
-        <a href="{{ route('home') }}" class="sidebar__link">Akomodasi</a>
+        <a href="{{ route('akomodasi') }}" class="sidebar__link">Akomodasi</a>
       </div>
     </li>
     <li class="sidebar__item">
@@ -41,12 +41,12 @@
     </li>
     <li class="sidebar__item">
       <div class="sidebar__link__wrapper">
-        <a href="{{ route('home') }}" class="sidebar__link">Pramuwisata</a>
+        <a href="#" class="sidebar__link">Pramuwisata</a>
       </div>
     </li>
     <li class="sidebar__item">
       <div class="sidebar__link__wrapper">
-        <a href="{{ route('home') }}" class="sidebar__link">Sanggar Seni</a>
+        <a href="#" class="sidebar__link">Sanggar Seni</a>
       </div>
     </li>
 
