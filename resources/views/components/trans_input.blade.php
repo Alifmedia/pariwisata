@@ -13,7 +13,7 @@
   {{-- <div class="filter__input"> --}}
     <div class="filter__input__sub">
       <div class="form-group">
-        <label for="filter1">Nama Akomodasi</label>
+        <label for="filter1">Nama Transportasi</label>
         <select class="form-control" id="filter1">
           <option>Semua</option>
           <option>Hermes Palace</option>

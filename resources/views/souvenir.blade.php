@@ -36,6 +36,9 @@
       <div class="tab-pane" id="perizinan" role="tabpanel" aria-labelledby="perizinan-tab">
         @include('components.souvenir_perizinan')
       </div>
+      <div class="tab-pane" id="statistik" role="tabpanel" aria-labelledby="statistik-tab">
+        Statistik
+      </div>
     </div>
   </div>
 

@@ -8,7 +8,7 @@
       <a class="nav-link active" id="input-tab" data-toggle="tab" href="#input" role="tab" aria-controls="input" aria-selected="false">Penginputan</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="data-tab" data-toggle="tab" href="#data" role="tab" aria-controls="data" aria-selected="true">Data Akomodasi</a>
+      <a class="nav-link" id="data-tab" data-toggle="tab" href="#data" role="tab" aria-controls="data" aria-selected="true">Data Objek Wisata</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" id="kunjungan-tab" data-toggle="tab" href="#kunjungan" role="tab" aria-controls="kunjungan" aria-selected="false">Data Kunjungan</a>

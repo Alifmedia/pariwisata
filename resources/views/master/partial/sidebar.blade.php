@@ -30,6 +30,16 @@
     </li>
     <li class="sidebar__item">
       <div class="sidebar__link__wrapper">
+        <a href="#" class="sidebar__link">Biro Perjalanan</a>
+      </div>
+    </li>
+    <li class="sidebar__item">
+      <div class="sidebar__link__wrapper">
+        <a href="#" class="sidebar__link">Ekonomi Kreatif</a>
+      </div>
+    </li>
+    <li class="sidebar__item">
+      <div class="sidebar__link__wrapper">
         <a href="{{ route('souvenir') }}" class="sidebar__link">Souvenir</a>
       </div>
     </li>
