@@ -82,6 +82,24 @@ $widhtSideBar : 200px;
   box-shadow: $depth1;
 }
 
+.nav-tabs-flat {
+  box-shadow: $depth1;
+  position: relative;
+  border: 0 !important;
+  background: lighten($primary-color, 5);
+  color: $on-primary-color;
+  padding: 8px 16px;
+  font-size: .9rem;
+  a {
+    margin: 0;
+    color: $on-primary-color;
+    &:hover {
+      color: $on-primary-color;
+      text-decoration: none;
+    }
+  }
+}
+
 // Tab
 .nav-tabs {
   box-shadow: $depth1;

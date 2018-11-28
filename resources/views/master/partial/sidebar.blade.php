@@ -30,7 +30,7 @@
     </li>
     <li class="sidebar__item">
       <div class="sidebar__link__wrapper">
-        <a href="#" class="sidebar__link">Biro Perjalanan</a>
+        <a href="{{ route('biro_perjalanan') }}" class="sidebar__link">Biro Perjalanan</a>
       </div>
     </li>
     <li class="sidebar__item">

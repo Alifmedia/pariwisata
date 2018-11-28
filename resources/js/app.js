@@ -8,6 +8,7 @@
 require('./bootstrap');
 require('./navbar');
 require('./script');
+require('./filter');
 
 window.Vue = require('vue');
 

@@ -13879,7 +13879,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(12);
-module.exports = __webpack_require__(45);
+module.exports = __webpack_require__(46);
 
 
 /***/ }),
@@ -13896,8 +13896,9 @@ module.exports = __webpack_require__(45);
 __webpack_require__(13);
 __webpack_require__(36);
 __webpack_require__(37);
+__webpack_require__(38);
 
-window.Vue = __webpack_require__(38);
+window.Vue = __webpack_require__(39);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -13905,7 +13906,7 @@ window.Vue = __webpack_require__(38);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(41));
+Vue.component('example-component', __webpack_require__(42));
 
 var app = new Vue({
   el: '#app'
@@ -35984,6 +35985,9 @@ $('.sidebar__group .icon').on('click', function () {
 changeIcon();
 
 // Tab
+var currentUrl = window.location.href;
+$('.nav-link[href="' + currentUrl + '"]').addClass('active');
+
 var $el,
     leftPos,
     newWidth,
@@ -36012,33 +36016,98 @@ $('.nav-tabs .nav-link').on('click', function () {
 
 $('.carousel').carousel();
 
-// delete soon
-$filterTipe = $('.akomodasi .data #filter1 option');
-// $valueFilterTipe = $filterTipe.val();
-$filterLevel = $('.akomodasi .data #filter2');
-$options = '<option>Pilih Tipe</option>';
-$filterLevel.html($options);
-$filterLevel.prop('disabled', true);
-
-$('.akomodasi .data #filter1').on('change', function () {
-  $valueFilterTipe = $(this).find(':selected').val();
-  console.log($valueFilterTipe);
-  if ($valueFilterTipe == 'All') {
-    $filterLevel.prop('disabled', true);
-    $options = '<option>Pilih Tipe</option>';
-  } else if ($valueFilterTipe == 'Hotel') {
-    $filterLevel.prop('disabled', false);
-    $options = '<option>Bintang 1</option>\n                <option>Bintang 2</option>\n                <option>Bintang 3</option>\n                <option>Bintang 4</option>\n                <option>Bintang 5</option>';
-  } else {
-    $filterLevel.prop('disabled', false);
-    $options = '<option>Ekonomi</option>\n                <option>Standar</option>\n                <option>Eklusif</option>';
-  }
-
-  $filterLevel.html($options);
+$('.check-all').on('click', function () {
+  $('.check').prop('checked', this.checked);
 });
 
 /***/ }),
 /* 38 */
+/***/ (function(module, exports) {
+
+var html;
+var field;
+
+function addOption(selector, opts) {
+  html = '<option>Semua</option>';
+  selector.append(html);
+  for (var i = 0; i < opts.length; i++) {
+    html = '<option value="' + opts[i] + '">' + opts[i] + '</option>';
+    selector.append(html);
+  }
+}
+
+function addResponsiveOptionSub(selector, according, opt) {
+  console.log(selector, according, opt);
+  selector.empty();
+  selected = according.find(':selected').val().replace(/ /gi, "_");
+  option = opt[selected];
+  if (!option) {
+    field = according.siblings('label').html();
+    html = '<option>Pilih ' + field + '</option>';
+    selector.append(html);
+    selector.prop('disabled', true);
+    return;
+  }
+  selector.prop('disabled', false);
+  for (var i = 0; i < option.length; i++) {
+    html = '<option value="' + option[i] + '">' + option[i] + '</option>';
+    selector.append(html);
+  }
+}
+
+function addResponsiveOption(selector, according, opt) {
+  addResponsiveOptionSub(selector, according, opt);
+  according.on('change', function () {
+    addResponsiveOptionSub(selector, according, opt);
+  });
+}
+
+//fields
+
+var tipe = ['Hotel', 'Losmen', 'Wisma', 'Guesthouse', 'Homestay'];
+
+var levelSub = ['Ekonomi', 'Standard', 'Eklusif'];
+var level = {
+  Hotel: ['Bintang 1', 'Bintang 2', 'Bintang 3', 'Bintang 4', 'Bintang 5'],
+  Losmen: ['Melati 1', 'Melati 2'],
+  Wisma: levelSub,
+  Guesthouse: levelSub,
+  Homestay: levelSub
+};
+var kecamatan = ['Baiturrahman', 'Kuta Alam', 'Meuraxa', 'Syiah Kuala', 'Lueng Bata', 'Kuta Raja', 'Banda Raya', 'Jaya Baru', 'Ulee Kareng'];
+var gampong = {
+  Baiturrahman: ['Ateuk Jawo', 'Ateuk Deah Tanoh', 'Ateuk Pahlawan', 'Ateuk Munjeng', 'Neusu Aceh', 'Seutui', 'Sukaramai', 'Neusu Jaya', 'Peuniti', 'Kampung Baru'],
+  Kuta_Alam: ['Peunayong', 'Laksana', 'Keuramat', 'Kuta Alam', 'Beurawe', 'Kota Baru', 'Bandar Baru', 'Mulia', 'Lampulo', 'Lamdingin', 'Lambaro Skep'],
+  Meuraxa: ['Surien', 'Aso Nanggroe', 'Gampong Blang', 'Lamjabat', 'Gampong Baro', 'Punge Jurong', 'Lampaseh Aceh', 'Punge Ujong', 'Cot Lamkeuweuh', 'Gampong Pie', 'Ulee Lheue', 'Deah Glumpang', 'Lambung', 'Blang Oi', 'Alue Deah Teungoh', 'Deah Baro'],
+  Syiah_Kuala: ['Ie Maseng Kaye Adang', 'Gampong Pineung', 'Lamgugob', 'Kopelma Darussalam', 'Rukoh', 'Jeulingke', 'Tibang', 'Deah Raya', 'Aleu Naga', 'Peurada'],
+  Lueng_Bata: ['Lamdom', 'Cot Masjid', 'Bathoh', 'Lueng Bata', 'Blang Cut', 'Lampaloh', 'Suka Damai', 'Panteriek', 'Lamseupeung'],
+  Kuta_Raja: ['Lampaseh Kota', 'Merduati', 'Keudah', 'Peulanggahan', 'Gampong Jawa', 'Gampong Pande'],
+  Banda_Raya: ['Lam Ara', 'Lampeuot', 'Mibo', 'Lhong Cut', 'Lhong Raya', 'Peunyerat', 'Lamlagang', 'Geuceu Komplek', 'Geuceu Inem', 'Geuceu Kayee Jato'],
+  Jaya_Baru: ['Ulee Pata', 'Lamjamee', 'Lampoh Daya', 'Emperom', 'Geuceu Meunara', 'Lamteumen Barat', 'Lamteumen Timur', 'Bitai', 'Punge Blang Cut'],
+  Ulee_Kareng: ['Pango Raya', 'Pango Deah', 'Ilie', 'Lamteh', 'Lamglumpang', 'Ceurih', 'Ie Masen Ulee Kareng', 'Doi', 'Lambhuk']
+};
+var phri = ['Ya', 'Tidak'];
+var izin = ['Aktif', 'Non-Aktif'];
+var tipeBiroPer = ['BPW', 'APW'];
+
+//call function for options in fields
+if ($('#akomodasi').length) {
+  addOption($('#akomodasi #data #filter1'), tipe);
+  addResponsiveOption($('#akomodasi #data #filter2'), $('#akomodasi #data #filter1'), level);
+  addOption($('#akomodasi #data #filter3'), kecamatan);
+  addResponsiveOption($('#akomodasi #data #filter4'), $('#akomodasi #data #filter3'), gampong);
+  addOption($('#akomodasi #data #filter5'), phri);
+  addOption($('#akomodasi #data #filter6'), izin);
+}
+
+if ($('#biro-perjalanan').length) {
+  addOption($('#biro-perjalanan #data #filter1'), tipeBiroPer);
+  addOption($('#biro-perjalanan #data #filter2'), kecamatan);
+  addResponsiveOption($('#biro-perjalanan #data #filter3'), $('#biro-perjalanan #data #filter2'), gampong);
+}
+
+/***/ }),
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47001,10 +47070,10 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(39).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(40).setImmediate))
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -47060,7 +47129,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(40);
+__webpack_require__(41);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -47074,7 +47143,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -47267,15 +47336,15 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(6)))
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(42)
+var normalizeComponent = __webpack_require__(43)
 /* script */
-var __vue_script__ = __webpack_require__(43)
+var __vue_script__ = __webpack_require__(44)
 /* template */
-var __vue_template__ = __webpack_require__(44)
+var __vue_template__ = __webpack_require__(45)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -47314,7 +47383,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -47423,7 +47492,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -47452,7 +47521,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -47495,7 +47564,7 @@ if (false) {
 }
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

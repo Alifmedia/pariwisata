@@ -12,9 +12,15 @@
 */
 
 
-Route::get('/akomodasi', function () {
-  return view('akomodasi');
-})->name('akomodasi');
+Route::get('/akomodasi', 'AkomodasiDataController@index')->name('akomodasi');
+Route::get('/akomodasi/kunjungan', 'AkomodasiDataController@kunjungan')->name('akomodasi.kunjungan');
+
+Route::get('/biro-perjalanan', 'BiroPerjalananDataController@index')->name('biro_perjalanan');
+Route::get('/biro-perjalanan/perizinan', 'BiroPerjalananDataController@perizinan')->name('biro_perjalanan.perizinan');
+
+Route::get('/akomodasi/tambah-data-akomodasi', function () {
+  return view('akomodasi_add_data');
+})->name('akomodasi.tambah_data');
 
 Route::get('/transportasi', function () {
   return view('transportasi');

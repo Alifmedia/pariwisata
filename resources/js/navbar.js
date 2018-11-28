@@ -28,6 +28,9 @@ changeIcon();
 
 
 // Tab
+var currentUrl = window.location.href;
+$('.nav-link[href="' + currentUrl + '"]').addClass('active');
+
 var $el, leftPos, newWidth,
     $mainNav = $(".nav-tabs");
 
