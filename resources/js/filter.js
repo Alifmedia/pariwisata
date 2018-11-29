@@ -63,6 +63,7 @@ var gampong = {
 var phri = ['Ya', 'Tidak'];
 var izin = [ 'Aktif', 'Non-Aktif' ];
 var tipeBiroPer = [ 'BPW', 'APW' ];
+var tipeObjWis = [ 'Bangunan', 'Benda', 'Makam', 'Taman', 'Monumen', 'Rumah', 'Tugu', 'Situs', 'Taman/Bangunan/Makam' ];
 
 
 
@@ -80,4 +81,10 @@ if ($('#biro-perjalanan').length) {
   addOption($('#biro-perjalanan #data #filter1'), tipeBiroPer);
   addOption($('#biro-perjalanan #data #filter2'), kecamatan);
   addResponsiveOption($('#biro-perjalanan #data #filter3'), $('#biro-perjalanan #data #filter2') , gampong);
+}
+
+if ($('#objek-wisata').length) {
+  addOption($('#objek-wisata #data #filter1'), tipeObjWis);
+  addOption($('#objek-wisata #data #filter2'), kecamatan);
+  addResponsiveOption($('#objek-wisata #data #filter3'), $('#objek-wisata #data #filter2') , gampong);
 }

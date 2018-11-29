@@ -18,6 +18,8 @@ Route::get('/akomodasi/kunjungan', 'AkomodasiDataController@kunjungan')->name('a
 Route::get('/biro-perjalanan', 'BiroPerjalananDataController@index')->name('biro_perjalanan');
 Route::get('/biro-perjalanan/perizinan', 'BiroPerjalananDataController@perizinan')->name('biro_perjalanan.perizinan');
 
+Route::get('/objek-wisata', 'ObjekWisataDataController@index')->name('objek_wisata');
+
 Route::get('/akomodasi/tambah-data-akomodasi', function () {
   return view('akomodasi_add_data');
 })->name('akomodasi.tambah_data');
@@ -26,9 +28,6 @@ Route::get('/transportasi', function () {
   return view('transportasi');
 })->name('transportasi');
 
-Route::get('/objek-wisata', function () {
-  return view('objek_wisata');
-})->name('objek_wisata');
 
 Route::get('/kuliner', function () {
   return view('kuliner');

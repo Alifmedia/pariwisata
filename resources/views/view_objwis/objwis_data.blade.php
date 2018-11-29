@@ -1,151 +1,130 @@
-<div class="search">
-  <div class="form-group">
-    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Katagori">
-  </div>
+@extends('view_objwis.objwis')
 
-  <button type="button" class="btn btn-primary" name="button">
-    <i class="fa fa-search" aria-hidden="true"></i>&nbsp;
-    Cari
-  </button>
-</div>
-
-<div class="filter data">
-  {{-- <div class="filter__input"> --}}
-    <div class="filter__input__sub">
+@section('main-content')
+  <div id="data">
+    <div class="search">
       <div class="form-group">
-        <label for="filter1">Tipe</label>
-        <select class="form-control" id="filter1">
-          <option value="All">Semua</option>
-          <option value="Hotel">Hotel</option>
-          <option value="Losmen">Losmen</option>
-          <option value="Wisma">Wisma</option>
-          <option value="Guesthost">Guesthost</option>
-          <option value="Homestay">Homestay</option>
-        </select>
+        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Katagori">
       </div>
-      <div class="form-group">
-        <label for="filter2">Level</label>
-        <select class="form-control" id="filter2">
 
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="filter3">Kecamatan</label>
-        <select class="form-control" id="filter3">
-          <option>Semua</option>
-          <option>Ulee Kareng</option>
-          <option>Syiah Kuala</option>
-          <option>Kuta Alam</option>
-          <option>Bandaraya</option>
-          <option>Jaya Baru</option>
-          <option>Lungbata</option>
-
-        </select>
-      </div>
+      <button type="button" class="btn btn-primary" name="button">
+        <i class="fa fa-search" aria-hidden="true"></i>&nbsp;
+        Cari
+      </button>
     </div>
 
-    <div class="filter__input__sub">
-      <div class="form-group">
-        <label for="filter4">Gampong</label>
-        <select class="form-control" id="filter4">
-          <option>Semua</option>
-          <option>Lambhuk</option>
-          <option>Lampineung</option>
-          <option>Pango</option>
-          <option>Lamgugob</option>
-          <option>Lampriet</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="filter5">Status</label>
-        <select class="form-control" id="filter5">
-          <option>Semua</option>
-          <option>Aktif</option>
-          <option>Tidak Aktif</option>
-          <option>Proses Izin</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="filter6">Kategori</label>
-        <select class="form-control" id="filter6">
-          <option>Semua</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
+    <div class="filter">
+      {{-- <div class="filter__input"> --}}
+        <div class="filter__input__sub">
+          <div class="form-group">
+            <label for="filter1">Tipe</label>
+            <select class="form-control" id="filter1"></select>
+          </div>
+          <div class="form-group">
+            <label for="filter2">Kecamatan</label>
+            <select class="form-control" id="filter2"></select>
+          </div>
+          <div class="form-group">
+            <label for="filter3">Gampong</label>
+            <select class="form-control" id="filter3"></select>
+          </div>
+        </div>
+    </div>
+
+
+    {{-- Table --}}
+    <br>
+    <button type="button" class="btn btn-danger" name="button">
+      <i class="fa fa-trash" aria-hidden="true"></i>&nbsp;
+      Hapus
+    </button>
+    <button type="button" class="btn btn-primary" name="button">
+      <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;
+      Tambah
+    </button>
+    <br><br>
+    <div class="card card__table">
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">
+                  <input type="checkbox" class="check-all">
+                </th>
+                <th scope="col">No</th>
+                <th scope="col">Nama</th>
+                <th scope="col">Alamat</th>
+                <th scope="col">Koordinator</th>
+                <th scope="col">Pengelola</th>
+                <th scope="col">Detail</th>
+                <th scope="col">
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </th>
+
+
+
+
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($datas as $key => $data)
+                <tr>
+                  <td><input type="checkbox" name="check[]" class="check"></td>
+                  <td>{{$key + 1}}</td>
+                  <td>{{ $data->objwis_nama }}</td>
+                  <td>{{ $data->objwis_alamat }}</td>
+                  <td>{{ $data->objwis_kordinator }}</td>
+                  <td>{{ $data->penngelola }}</td>
+                  <td>
+                    <a href="#">
+                      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="#">
+                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </a>
+                  </td>
+                </tr>
+              @endforeach
+
+              {{-- <tr>
+                <td><input type="checkbox" name="check[]" class="check"></td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+
+              </tr>
+              <tr>
+                <td><input type="checkbox" name="check[]" class="check"></td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+
+              </tr> --}}
+            </tbody>
+          </table>
+        </div>
+
       </div>
     </div>
-  {{-- </div> --}}
-</div>
-
-
-{{-- Table --}}
-<br><br>
-
-<div class="card card__table">
-  <div class="card-body">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">No</th>
-          <th scope="col">Hotel</th>
-          <th scope="col">Alamat</th>
-          <th scope="col">Perusahaan</th>
-          <th scope="col">Pemilik</th>
-          <th scope="col">Telp</th>
-          <th scope="col">Website</th>
-          <th scope="col">No Izin</th>
-          <th scope="col">Tgl Izin</th>
-          <th scope="col">Tahun Berdiri</th>
-          <th scope="col">Manager</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-
-        </tr>
-        <tr>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-
-        </tr>
-        <tr>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-
-        </tr>
-      </tbody>
-    </table>
   </div>
-</div>
+
+@endsection
