@@ -19,7 +19,7 @@ class EkonomiKreatif extends Model
     // one to many (inverse)
     public function EkokreaBid()
     {
-      return $this->belongsTo('App\Models\EkokreaBid', 'ekokrea_id', 'ekokreabid_id');
+      return $this->belongsTo('App\Models\EkokreaBid', 'ekokrea_id', 'ekokrea_bid_id');
     }
 
     //many to many

@@ -20,6 +20,11 @@ Route::get('/biro-perjalanan/perizinan', 'BiroPerjalananDataController@perizinan
 
 Route::get('/objek-wisata', 'ObjekWisataDataController@index')->name('objek_wisata');
 
+Route::get('/ekonomi-kreatif', 'EkonomiKreatifDataController@index')->name('ekonomi_kratif');
+
+Route::get('/kuliner', 'KulinerDataController@index')->name('kuliner');
+
+
 Route::get('/akomodasi/tambah-data-akomodasi', function () {
   return view('akomodasi_add_data');
 })->name('akomodasi.tambah_data');
@@ -28,10 +33,6 @@ Route::get('/transportasi', function () {
   return view('transportasi');
 })->name('transportasi');
 
-
-Route::get('/kuliner', function () {
-  return view('kuliner');
-})->name('kuliner');
 
 Route::get('/souvenir', function () {
   return view('souvenir');

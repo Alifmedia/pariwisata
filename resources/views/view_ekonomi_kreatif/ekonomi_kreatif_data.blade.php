@@ -1,4 +1,4 @@
-@extends('view_biro_perjalanan.biro_perjalanan')
+@extends('view_ekonomi_kreatif.ekonomi_kreatif')
 
 @section('main-content')
   <div id="data">
@@ -29,16 +29,6 @@
             <select class="form-control" id="filter3"></select>
           </div>
         </div>
-
-        {{-- <div class="filter__input__sub">
-          <div class="form-group">
-            <label for="filter3">Gampong</label>
-            <select class="form-control" id="filter3"></select>
-          </div>
-        </div> --}}
-
-
-      {{-- </div> --}}
     </div>
 
 
@@ -64,16 +54,14 @@
                 </th>
                 <th scope="col">No</th>
                 <th scope="col">Nama</th>
+                <th scope="col">Bidang</th>
+                <th scope="col">Bintang</th>
                 <th scope="col">Alamat</th>
-                <th scope="col">Pemilik</th>
                 <th scope="col">Telp</th>
                 <th scope="col">Detail</th>
                 <th scope="col">
                   <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 </th>
-
-
-
 
               </tr>
             </thead>
@@ -82,10 +70,11 @@
                 <tr>
                   <td><input type="checkbox" name="check[]" class="check"></td>
                   <td>{{$key + 1}}</td>
-                  <td>{{ $data->biroper_nama }}</td>
-                  <td>{{ $data->biroper_alamat }}, {{ $data->Village[0]->vill_name }}</td>
-                  <td>{{ $data->biroper_pemilik }}</td>
-                  <td>{{ $data->biroper_tlpn }}</td>
+                  <td>{{ $data->ekokrea_nama }}</td>
+                  <td>{{ $data->EkokreaBid['ekokrea_bid_nama'] }}</td>
+                  <td>{{ $data->bintang }}</td>
+                  <td>{{ $data->Village }}</td>
+                  <td>{{ $data->ekokrea_hp }}</td>
                   <td>
                     <a href="#">
                       <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
@@ -98,6 +87,37 @@
                   </td>
                 </tr>
               @endforeach
+
+              {{-- <tr>
+                <td><input type="checkbox" name="check[]" class="check"></td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+
+              </tr>
+              <tr>
+                <td><input type="checkbox" name="check[]" class="check"></td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+
+              </tr> --}}
             </tbody>
           </table>
         </div>

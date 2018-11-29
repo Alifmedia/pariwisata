@@ -35,7 +35,7 @@
     </li>
     <li class="sidebar__item">
       <div class="sidebar__link__wrapper">
-        <a href="#" class="sidebar__link">Ekonomi Kreatif</a>
+        <a href="{{ route('ekonomi_kratif') }}" class="sidebar__link">Ekonomi Kreatif</a>
       </div>
     </li>
     <li class="sidebar__item">

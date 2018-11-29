@@ -36090,6 +36090,7 @@ var phri = ['Ya', 'Tidak'];
 var izin = ['Aktif', 'Non-Aktif'];
 var tipeBiroPer = ['BPW', 'APW'];
 var tipeObjWis = ['Bangunan', 'Benda', 'Makam', 'Taman', 'Monumen', 'Rumah', 'Tugu', 'Situs', 'Taman/Bangunan/Makam'];
+var tipeKuliner = ['Rumah Makan', 'Warung', 'Cafe', 'Restoran', 'Bakery'];
 
 //call function for options in fields
 if ($('#akomodasi').length) {
@@ -36111,6 +36112,12 @@ if ($('#objek-wisata').length) {
   addOption($('#objek-wisata #data #filter1'), tipeObjWis);
   addOption($('#objek-wisata #data #filter2'), kecamatan);
   addResponsiveOption($('#objek-wisata #data #filter3'), $('#objek-wisata #data #filter2'), gampong);
+}
+
+if ($('#kuliner').length) {
+  addOption($('#kuliner #data #filter1'), tipeKuliner);
+  addOption($('#kuliner #data #filter2'), kecamatan);
+  addResponsiveOption($('#kuliner #data #filter3'), $('#kuliner #data #filter2'), gampong);
 }
 
 /***/ }),
