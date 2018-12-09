@@ -2,33 +2,53 @@
 
 @section('main-content')
   <div id="data">
-    <div class="search">
-      <div class="form-group">
-        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Katagori">
+    <form id="search-form" action="{{ route('objek_wisata') }}" method="get">
+      <div class="search">
+        <div class="form-group">
+          <input type="text" class="form-control" name="search" placeholder="Pencarian...">
+        </div>
+
+        <button type="submit" class="btn btn-primary" name="button">
+          <i class="fa fa-search" aria-hidden="true"></i>&nbsp;
+          Cari
+        </button>
       </div>
 
-      <button type="button" class="btn btn-primary" name="button">
-        <i class="fa fa-search" aria-hidden="true"></i>&nbsp;
-        Cari
-      </button>
-    </div>
-
-    <div class="filter">
-      {{-- <div class="filter__input"> --}}
+      <div class="filter">
         <div class="filter__input__sub">
           <div class="form-group">
             <label for="filter1">Tipe</label>
-            <select class="form-control" id="filter1"></select>
+            <select class="form-control" id="filter1" name="tipe">
+              <option value="">Semua</option>
+              @foreach ($filter['tipe'] as $tipe)
+                <option value="{{ $tipe->kat_id }}" {{ app('request')->input('tipe') == $tipe->kat_id ? 'selected' : '' }}>{{ $tipe->kat_name }}</option>
+              @endforeach
+            </select>
           </div>
           <div class="form-group">
             <label for="filter2">Kecamatan</label>
-            <select class="form-control" id="filter2"></select>
+            <select class="form-control" id="filter2" name="kecamatan">
+              <option value="">Semua</option>
+              @foreach ($filter['kecamatan'] as $kecamatan)
+                <option value="{{ $kecamatan->dist_id }}" {{ app('request')->input('kecamatan') == $kecamatan->dist_id ? 'selected' : '' }}>{{ $kecamatan->dist_name }}</option>
+              @endforeach
+            </select>
           </div>
           <div class="form-group">
             <label for="filter3">Gampong</label>
-            <select class="form-control" id="filter3"></select>
+            <select class="form-control" id="filter3" name="gampong" {{ $filter['gampong'] ? '' : 'disabled' }}>
+              @if ($filter['gampong'])
+                <option value="">Semua</option>
+                @foreach ($filter['gampong'] as $gampong)
+                  <option value="{{ $gampong->vill_id }}" {{ app('request')->input('gampong') == $gampong->vill_id ? 'selected' : '' }}>{{ $gampong->vill_name }}</option>
+                @endforeach
+              @else
+                <option value="">Pilih Tipe</option>
+              @endif
+            </select>
           </div>
         </div>
+      </form>
     </div>
 
 
@@ -88,42 +108,13 @@
                   </td>
                 </tr>
               @endforeach
-
-              {{-- <tr>
-                <td><input type="checkbox" name="check[]" class="check"></td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-
-              </tr>
-              <tr>
-                <td><input type="checkbox" name="check[]" class="check"></td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-
-              </tr> --}}
             </tbody>
           </table>
         </div>
-
       </div>
+    </div>
+    <div class="pagination-wrapper">
+      {{ $datas->links() }}
     </div>
   </div>
 

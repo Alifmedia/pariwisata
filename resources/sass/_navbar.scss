@@ -35,9 +35,14 @@ $widhtSideBar : 200px;
       width: 100%;
     }
     .sidebar__header_wrapper {
-      a {
+      p {
         color: grey;
+        cursor: context-menu;
+        margin: 0;
       }
+    }
+    .sidebar__logo {
+      width: 25px;
     }
     .sidebar__link__wrapper {
       &:hover {

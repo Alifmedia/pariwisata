@@ -1,11 +1,11 @@
-@extends('view_biro_perjalanan.biro_perjalanan')
+@extends('view_pramuwisata.pramuwisata')
 
 @section('main-content')
   <div id="data">
-    <form id="search-form" action="{{ route('biro_perjalanan') }}" method="get">
+    <form id="search-form" action="{{ route('kuliner') }}" method="get">
       <div class="search">
         <div class="form-group">
-          <input type="text" class="form-control" name="search" placeholder="Pencarian..." value="{{ app('request')->input('search') }}">
+          <input type="text" class="form-control" name="search" placeholder="Pencarian...">
         </div>
 
         <button type="submit" class="btn btn-primary" name="button">
@@ -17,19 +17,8 @@
       <div class="filter">
         <div class="filter__input__sub">
           <div class="form-group">
-            <label for="filter1">Tipe</label>
-            <select class="form-control" id="filter1" name="tipe">
-              <option value="">Semua</option>
-              @foreach ($filter['tipe'] as $tipe)
-                @if ($tipe->biroper_jenistrav)
-                  <option value="{{ $tipe->biroper_jenistrav }}" {{ app('request')->input('tipe') == $tipe->biroper_jenistrav ? 'selected' : '' }}>{{ $tipe->biroper_jenistrav }}</option>
-                @endif
-              @endforeach
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="filter2">Kecamatan</label>
-            <select class="form-control" id="filter2" name="kecamatan">
+            <label>Kecamatan</label>
+            <select class="form-control" name="kecamatan">
               <option value="">Semua</option>
               @foreach ($filter['kecamatan'] as $kecamatan)
                 <option value="{{ $kecamatan->dist_id }}" {{ app('request')->input('kecamatan') == $kecamatan->dist_id ? 'selected' : '' }}>{{ $kecamatan->dist_name }}</option>
@@ -37,8 +26,8 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="filter3">Gampong</label>
-            <select class="form-control" id="filter3" name="gampong" {{ $filter['gampong'] ? '' : 'disabled' }}>
+            <label>Gampong</label>
+            <select class="form-control" name="gampong" {{ $filter['gampong'] ? '' : 'disabled' }}>
               @if ($filter['gampong'])
                 <option value="">Semua</option>
                 @foreach ($filter['gampong'] as $gampong)
@@ -49,21 +38,30 @@
               @endif
             </select>
           </div>
+          <div class="form-group">
+            <label>Status</label>
+            <select class="form-control" name="status"></select>
+          </div>
+          <div class="form-group">
+            <label>Bahasa</label>
+            <select class="form-control" name="bahasa"></select>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
+  </div>
 
 
     {{-- Table --}}
     <br>
-    <a href="" class="btn btn-danger">
+    <button type="button" class="btn btn-danger" name="button">
       <i class="fa fa-trash" aria-hidden="true"></i>&nbsp;
       Hapus
-    </a>
-    <a href="{{ route('biro_perjalanan.create') }}" class="btn btn-primary">
+    </button>
+    <button type="button" class="btn btn-primary" name="button">
       <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;
       Tambah
-    </a>
+    </button>
     <br><br>
     <div class="card card__table">
       <div class="card-body">
@@ -77,8 +75,10 @@
                 <th scope="col">No</th>
                 <th scope="col">Nama</th>
                 <th scope="col">Alamat</th>
-                <th scope="col">Pemilik</th>
-                <th scope="col">Telp</th>
+                <th scope="col">Kelamin</th>
+                <th scope="col">Tempat Lahir</th>
+                <th scope="col">Tanggal Lahir</th>
+                <th scope="col">Telpon</th>
                 <th scope="col">Detail</th>
                 <th scope="col">
                   <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -94,10 +94,12 @@
                 <tr>
                   <td><input type="checkbox" name="check[]" class="check"></td>
                   <td>{{$key + 1}}</td>
-                  <td>{{ $data->biroper_nama }}</td>
-                  <td>{{ $data->biroper_alamat }}, {{ $data->Village[0]->vill_name }}</td>
-                  <td>{{ $data->biroper_pemilik }}</td>
-                  <td>{{ $data->biroper_tlpn }}</td>
+                  <td>{{ $data->pramu_nama }}</td>
+                  <td>{{ $data->Village->vill_name }}, {{ $data->Village->district['dist_name'] }}</td>
+                  <td>{{ $data->pramu_kel }}</td>
+                  <td>{{ $data->pramu_tmplahir }}</td>
+                  <td>{{ $data->pramu_tgllahir }}</td>
+                  <td>{{ $data->pramu_hp }}</td>
                   <td>
                     <a href="#">
                       <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
@@ -113,7 +115,6 @@
             </tbody>
           </table>
         </div>
-
       </div>
     </div>
     <div class="pagination-wrapper">

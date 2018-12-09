@@ -3,9 +3,9 @@
 @section('title', 'PARIWISATA')
 
 @section('content')
-  <div id="akomodasi">
+  <div id="biro_perjalanan">
     <div class="nav-tabs-flat">
-      <a href="{{ route('akomodasi') }}">
+      <a href="{{ route('biro_perjalanan') }}">
         <i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;
         Back
       </a>
@@ -14,7 +14,7 @@
     <div class="container mt-4">
       <div class="card">
         <div class="card-body">
-          <h3 class="card-title">Tambah Akomodasi</h3>
+          <h3 class="card-title">Tambah Biro Perjalanan</h3>
           <form>
             <div class="row">
               <div class="col-6">

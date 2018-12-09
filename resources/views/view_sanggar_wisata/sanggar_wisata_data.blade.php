@@ -1,4 +1,4 @@
-@extends('view_ekonomi_kreatif.ekonomi_kreatif')
+@extends('view_sanggar_wisata.sanggar_wisata')
 
 @section('main-content')
   <div id="data">
@@ -17,7 +17,7 @@
       {{-- <div class="filter__input"> --}}
         <div class="filter__input__sub">
           <div class="form-group">
-            <label for="filter1">Tipe</label>
+            <label for="filter1">Bidang</label>
             <select class="form-control" id="filter1"></select>
           </div>
           <div class="form-group">
@@ -54,14 +54,16 @@
                 </th>
                 <th scope="col">No</th>
                 <th scope="col">Nama</th>
-                <th scope="col">Bidang</th>
-                <th scope="col">Bintang</th>
                 <th scope="col">Alamat</th>
-                <th scope="col">Telp</th>
+                <th scope="col">Pimpinan</th>
+                <th scope="col">Telpon</th>
                 <th scope="col">Detail</th>
                 <th scope="col">
                   <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 </th>
+
+
+
 
               </tr>
             </thead>
@@ -70,11 +72,10 @@
                 <tr>
                   <td><input type="checkbox" name="check[]" class="check"></td>
                   <td>{{$key + 1}}</td>
-                  <td>{{ $data->ekokrea_nama }}</td>
-                  <td>{{ $data->EkokreaBid['ekokrea_bid_nama'] }}</td>
-                  <td>{{ $data->bintang }}</td>
-                  <td>{{ $data->Village }}</td>
-                  <td>{{ $data->ekokrea_hp }}</td>
+                  <td>{{ $data->sanggar_nama }}</td>
+                  <td>{{ $data->sanggar_alamat }}, {{ $data->Village->vill_name }}, {{ $data->Village->district['dist_name'] }}</td>
+                  <td>{{ $data->sanggar_pimpinan }}</td>
+                  <td>{{ $data->sanggar_hp }}</td>
                   <td>
                     <a href="#">
                       <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
@@ -87,7 +88,6 @@
                   </td>
                 </tr>
               @endforeach
-
             </tbody>
           </table>
         </div>

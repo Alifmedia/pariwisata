@@ -12,7 +12,7 @@
         <a class="nav-link" href="{{ route('akomodasi') }}">Data Akomodasi</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('akomodasi.kunjungan') }}">Data Kunjungan</a>
+        <a class="nav-link" href="{{ route('akomodasi.hunian') }}">Data Hunian</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Data Perizinan</a>

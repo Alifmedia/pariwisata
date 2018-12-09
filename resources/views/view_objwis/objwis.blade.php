@@ -14,6 +14,9 @@
       <li class="nav-item">
         <a class="nav-link" href="">Data Perizinan</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">Data Statistik</a>
+      </li>
     </ul>
 
     <div class="container mt-4">

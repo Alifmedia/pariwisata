@@ -31,14 +31,42 @@ body {
 .btn-primary {
   background-color: $primary-color !important;
   border-color: $primary-color !important;
+  color: $on-primary-color;
 }
 
 .btn-secondary {
   background-color: $secondary-color !important;
   border-color: $secondary-color !important;
+  color: $on-secondary-color;
 }
 
 .btn-danger {
   background-color: $danger-color !important;
   border-color: $danger-color !important;
+  color: $on-danger-color;
+}
+
+.pagination-wrapper {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  .page-item {
+    &.active {
+      .page-link {
+        color: $on-primary-color;
+        background: $primary-color;
+        border-color: $primary-color;
+      }
+    }
+  }
+
+  .page-link {
+    color: $primary-color;
+
+  }
+}
+
+.card-title {
+  color: $primary-color;
+  font-weight: bold;
 }
