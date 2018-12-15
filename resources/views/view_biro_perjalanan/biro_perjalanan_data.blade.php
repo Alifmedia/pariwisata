@@ -95,7 +95,7 @@
                   <td><input type="checkbox" name="check[]" class="check"></td>
                   <td>{{$key + 1}}</td>
                   <td>{{ $data->biroper_nama }}</td>
-                  <td>{{ $data->biroper_alamat }}, {{ $data->Village[0]->vill_name }}</td>
+                  <td>{{ $data->biroper_alamat }}, {{ $data->Village->vill_name }}</td>
                   <td>{{ $data->biroper_pemilik }}</td>
                   <td>{{ $data->biroper_tlpn }}</td>
                   <td>

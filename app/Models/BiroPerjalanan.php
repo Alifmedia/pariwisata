@@ -19,6 +19,6 @@ class BiroPerjalanan extends Model
     //many to many
     public function Village()
     {
-      return $this->belongsToMany('App\Models\Village', 'BIROPER_VILL' ,'biroper_id', 'vill_id');
+      return $this->belongsTo('App\Models\Village', 'biroper_id', 'vill_id');
     }
 }
