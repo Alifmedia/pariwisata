@@ -41,13 +41,13 @@
     <li class="sidebar__item">
       <div class="sidebar__link__wrapper">
         <img class="sidebar__logo" src="{{ asset('icon/ekonomi_kreatif@4x.png') }}" alt="">
-        <a href="{{ route('ekonomi_kratif') }}" class="sidebar__link">Ekonomi Kreatif</a>
+        <a href="{{ route('ekonomi_kreatif') }}" class="sidebar__link">Ekonomi Kreatif</a>
       </div>
     </li>
     <li class="sidebar__item">
       <div class="sidebar__link__wrapper">
         <img class="sidebar__logo" src="{{ asset('icon/money_changer@4x.png') }}" alt="">
-        <a href="#" class="sidebar__link">Money Changer</a>
+        <a href="{{ route('money_changer') }}" class="sidebar__link">Money Changer</a>
       </div>
     </li>
     <li class="sidebar__item">
@@ -71,7 +71,7 @@
     <li class="sidebar__item">
       <div class="sidebar__link__wrapper">
         <img class="sidebar__logo" src="{{ asset('icon/sanggar_seni@4x.png') }}" alt="">
-        <a href="{{ route('sanggar_wisata') }}" class="sidebar__link">Sanggar Seni</a>
+        <a href="{{ route('sanggar_seni') }}" class="sidebar__link">Sanggar Seni</a>
       </div>
     </li>
 

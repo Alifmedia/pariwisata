@@ -7,18 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Regional extends Model
 {
     protected $table = 'REGIONAL';
-    protected $primaryKey = 'reg_id';
     public $timestamps = false;
 
     //one to many
-    public function District()
+    public function district()
     {
-      return $this->hasMany('App\Models\District', 'reg_id', 'dist_id');
+      return $this->hasMany('App\Models\District');
     }
 
     // one to many (inverse)
-    public function Prov()
+    public function prov()
     {
-      return $this->belongsTo('App\Models\Prov', 'reg_id', 'prov_id');
+      return $this->belongsTo('App\Models\Prov');
     }
 }

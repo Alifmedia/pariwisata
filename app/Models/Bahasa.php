@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Bahasa extends Model
 {
     protected $table = 'bahasa';
-    protected $primaryKey = 'bah_id';
     public $timestamps = false;
+
+    public function pramuwisata()
+    {
+      return $this->belongsToMany('App\Models\Pramuwisata', 'pramuwisata__bahasa');
+    }
 }

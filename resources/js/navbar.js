@@ -26,29 +26,32 @@ $('.sidebar__group .icon').on('click', function(){
 
 changeIcon();
 
-
 // Tab
 var currentUrl = window.location.href.split(/[?#]/)[0];
 $('.nav-link[href="' + currentUrl + '"]').addClass('active');
 
-var $el, leftPos, newWidth,
-    $mainNav = $(".nav-tabs");
+if ($('.nav-tabs').length) {
 
-    $mainNav.append("<li id='magic-line'></li>");
-    var $magicLine = $("#magic-line");
+  var $el, leftPos, newWidth,
+  $mainNav = $(".nav-tabs");
 
-    $navItemActive = $(".nav-tabs .active").parent();
+  $mainNav.append("<li id='magic-line'></li>");
+  var $magicLine = $("#magic-line");
 
-    $magicLine
-        .width($navItemActive.width())
-        .css("left", $navItemActive.position().left);
+  $navItemActive = $(".nav-tabs .active").parent();
 
-$('.nav-tabs .nav-link').on('click', function(){
-  $el = $(this).parents('.nav-item');
-        leftPos = $el.position().left;
-        newWidth = $el.width();
-        $magicLine.stop().animate({
-            left: leftPos,
-            width: newWidth
-        });
-})
+  $magicLine
+  .width($navItemActive.width())
+  .css("left", $navItemActive.position().left);
+
+  $('.nav-tabs .nav-link').on('click', function(){
+    $el = $(this).parents('.nav-item');
+    leftPos = $el.position().left;
+    newWidth = $el.width();
+    $magicLine.stop().animate({
+      left: leftPos,
+      width: newWidth
+    });
+  })
+  
+}

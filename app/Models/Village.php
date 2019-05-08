@@ -6,61 +6,55 @@ use Illuminate\Database\Eloquent\Model;
 
 class Village extends Model
 {
-    protected $table = 'VILLAGE';
-    protected $primaryKey = 'vill_id';
+    protected $table = 'village';
     public $timestamps = false;
 
     //one to many
-    public function Akomodasi()
+    public function akomodasi()
     {
-      return $this->hasMany('App\Models\Akomodasi', 'vill_id', 'akom_id');
+      return $this->hasMany('App\Models\Akomodasi');
     }
 
-    public function Transportasi()
+    public function transportasi()
     {
-      return $this->hasMany('App\Models\Transportasi', 'vill_id', 'trans_id');
+      return $this->hasMany('App\Models\Transportasi');
     }
 
-    public function ObjekWisata()
+    public function objekWisata()
     {
-      return $this->hasMany('App\Models\ObjekWisata', 'vill_id', 'objwis_id');
+      return $this->hasMany('App\Models\ObjekWisata');
     }
 
-    public function SanggarWisata()
+    public function sanggarWisata()
     {
-      return $this->hasMany('App\Models\SanggarWisata', 'vill_id', 'sanggar_id');
+      return $this->hasMany('App\Models\SanggarWisata');
     }
 
-    public function Pramuwisata()
+    public function pramuwisata()
     {
-      return $this->hasMany('App\Models\Pramuwisata', 'vill_id', 'pramu_id');
+      return $this->hasMany('App\Models\Pramuwisata');
     }
 
-    public function Souvenir()
+    public function souvenir()
     {
-      return $this->hasMany('App\Models\Souvenir', 'vill_id', 'souv_id');
+      return $this->hasMany('App\Models\Souvenir');
     }
 
     // one to many (inverse)
-    public function District()
+    public function district()
     {
-      return $this->belongsTo('App\Models\District', 'vill_id', 'dist_id');
+      return $this->belongsTo('App\Models\District');
     }
 
     //many to many
-    public function EkonomiKreatif()
+    public function ekonomiKreatif()
     {
-      return $this->belongsToMany('App\Models\EkonomiKreatif', 'EKOKREA_VILL' ,'vill_id', 'ekokrea_id');
+      return $this->belongsToMany('App\Models\EkonomiKreatif', 'ekonomi_kreatif__village');
     }
 
-    public function Kuliner()
+    public function kuliner()
     {
-      return $this->belongsToMany('App\Models\Kuliner', 'KULL_VILL' ,'vill_id', 'kul_id');
-    }
-
-    public function BiroPerjalanan()
-    {
-      return $this->belongsToMany('App\Models\BiroPerjalanan', 'BIROPER_VILL' ,'vill_id', 'biroper_id');
+      return $this->belongsToMany('App\Models\Kuliner', 'kuliner__village');
     }
 
 

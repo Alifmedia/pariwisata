@@ -9,7 +9,7 @@
         <a class="nav-link active" id="input-tab" data-toggle="tab" href="#input" role="tab" aria-controls="input" aria-selected="false">Penginputan</a>
       </li> --}}
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('ekonomi_kratif') }}">Data Ekonomi Kreatif</a>
+        <a class="nav-link" href="{{ route('ekonomi_kreatif') }}">Data Ekonomi Kreatif</a>
       </li>
     </ul>
 

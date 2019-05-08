@@ -21,7 +21,7 @@
             <select class="form-control" id="filter1" name="tipe">
               <option value="">Semua</option>
               @foreach ($filter['tipe'] as $tipe)
-                <option value="{{ $tipe->kat_id }}" {{ app('request')->input('tipe') == $tipe->kat_id ? 'selected' : '' }}>{{ $tipe->kat_name }}</option>
+                <option value="{{ $tipe->id }}" {{ app('request')->input('tipe') == $tipe->id ? 'selected' : '' }}>{{ $tipe->nama }}</option>
               @endforeach
             </select>
           </div>
@@ -30,7 +30,7 @@
             <select class="form-control" id="filter2" name="kecamatan">
               <option value="">Semua</option>
               @foreach ($filter['kecamatan'] as $kecamatan)
-                <option value="{{ $kecamatan->dist_id }}" {{ app('request')->input('kecamatan') == $kecamatan->dist_id ? 'selected' : '' }}>{{ $kecamatan->dist_name }}</option>
+                <option value="{{ $kecamatan->id }}" {{ app('request')->input('kecamatan') == $kecamatan->id ? 'selected' : '' }}>{{ $kecamatan->nama }}</option>
               @endforeach
             </select>
           </div>
@@ -40,7 +40,7 @@
               @if ($filter['gampong'])
                 <option value="">Semua</option>
                 @foreach ($filter['gampong'] as $gampong)
-                  <option value="{{ $gampong->vill_id }}" {{ app('request')->input('gampong') == $gampong->vill_id ? 'selected' : '' }}>{{ $gampong->vill_name }}</option>
+                  <option value="{{ $gampong->id }}" {{ app('request')->input('gampong') == $gampong->id ? 'selected' : '' }}>{{ $gampong->nama }}</option>
                 @endforeach
               @else
                 <option value="">Pilih Tipe</option>
@@ -54,65 +54,64 @@
 
     {{-- Table --}}
     <br>
-    <button type="button" class="btn btn-danger" name="button">
-      <i class="fa fa-trash" aria-hidden="true"></i>&nbsp;
-      Hapus
-    </button>
-    <button type="button" class="btn btn-primary" name="button">
-      <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;
-      Tambah
-    </button>
-    <br><br>
-    <div class="card card__table">
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">
-                  <input type="checkbox" class="check-all">
-                </th>
-                <th scope="col">No</th>
-                <th scope="col">Nama</th>
-                <th scope="col">Alamat</th>
-                <th scope="col">Koordinator</th>
-                <th scope="col">Pengelola</th>
-                <th scope="col">Detail</th>
-                <th scope="col">
-                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                </th>
-
-
-
-
-              </tr>
-            </thead>
-            <tbody>
-              @foreach ($datas as $key => $data)
+    <form id="delete-form" action="{{ route('objek_wisata.delete') }}" method="POST">
+      @csrf
+      <button type="submit" class="btn btn-danger" name="button">
+        <i class="fa fa-trash" aria-hidden="true"></i>&nbsp;
+        Hapus
+      </button>
+      <a class="btn btn-primary" href="{{ route('objek_wisata.create') }}">
+        <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;
+        Tambah
+      </a>
+      <br><br>
+      <div class="card card__table">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
                 <tr>
-                  <td><input type="checkbox" name="check[]" class="check"></td>
-                  <td>{{$key + 1}}</td>
-                  <td>{{ $data->objwis_nama }}</td>
-                  <td>{{ $data->objwis_alamat }}</td>
-                  <td>{{ $data->objwis_kordinator }}</td>
-                  <td>{{ $data->penngelola }}</td>
-                  <td>
-                    <a href="#">
-                      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-                    </a>
-                  </td>
-                  <td>
-                    <a href="#">
-                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                    </a>
-                  </td>
+                  <th scope="col">
+                    <input type="checkbox" class="check-all">
+                  </th>
+                  <th scope="col">No</th>
+                  <th scope="col">Nama</th>
+                  <th scope="col">Alamat</th>
+                  <th scope="col">Koordinator</th>
+                  <th scope="col">Pengelola</th>
+                  <th scope="col">Detail</th>
+                  <th scope="col">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                  </th>
                 </tr>
-              @endforeach
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                @foreach ($datas as $key => $data)
+                  <tr>
+                    <td><input type="checkbox" name="check[]" value="{{ $data->id }}" class="check"></td>
+                    <td>{{$key + 1}}</td>
+                    <td>{{ $data->nama }}</td>
+                    <td>{{ $data->alamat }}, {{ $data->village['nama'] }}, {{ $data->village['district']['nama'] }}</td>
+                    <td>{{ $data->koordinator }}</td>
+                    <td>{{ $data->pengelola }}</td>
+                    <td>
+                      <a href="{{ route('objek_wisata.show', $data->id) }}">
+                        <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                      </a>
+                    </td>
+                    <td>
+                      <a href="{{ route('objek_wisata.edit', $data->id) }}">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                      </a>
+                    </td>
+                  </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-    </div>
+    </form>
     <div class="pagination-wrapper">
       {{ $datas->links() }}
     </div>

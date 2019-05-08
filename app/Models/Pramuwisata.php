@@ -7,12 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Pramuwisata extends Model
 {
     protected $table = 'PRAMUWISATA';
-    protected $primaryKey = 'pramu_id';
     public $timestamps = false;
 
     // one to many (inverse)
-    public function Village()
+    public function village()
     {
-      return $this->belongsTo('App\Models\Village', 'pramu_id', 'vill_id');
+      return $this->belongsTo('App\Models\Village');
+    }
+
+    public function bahasa()
+    {
+      return $this->belongsToMany('App\Models\Bahasa', 'pramuwisata__bahasa');
     }
 }

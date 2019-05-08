@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
-use App\Role;
+use App\Models\User;
+// use App\Models\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -51,7 +51,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
-            'username' => 'required|string|max:255|unique:user,user_username',
+            'username' => 'required|string|max:255|unique:user,username',
             'password' => 'required|string|min:6|confirmed',
             'alamat' => 'required|string|max:255',
             'role' => 'required|exists:role,role_id',
@@ -71,7 +71,7 @@ class RegisterController extends Controller
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
             'alamat' => $data['alamat'],
-            'role' => $data['role'],
+            'role_id' => $data['role'],
         ]);
 
     }

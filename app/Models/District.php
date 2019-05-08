@@ -7,19 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class District extends Model
 {
     protected $table = 'DISTRICT';
-    protected $primaryKey = 'dist_id';
     public $timestamps = false;
 
     //one to many
-    public function Village()
+    public function village()
     {
-      return $this->hasMany('App\Models\Village', 'dist_id', 'vill_id');
+      return $this->hasMany('App\Models\Village');
     }
 
     // one to many (inverse)
-    public function Regional()
+    public function regional()
     {
-      return $this->belongsTo('App\Models\Regional', 'dist_id', 'reg_id');
+      return $this->belongsTo('App\Models\Regional');
     }
 
 }

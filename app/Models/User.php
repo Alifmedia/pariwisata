@@ -29,23 +29,23 @@ class User extends Authenticatable
     ];
 
     protected $table = 'USER';
-    protected $primaryKey = 'user_id';
+    // protected $primaryKey = 'id';
     public $timestamps = false;
 
     //one to many
-    public function DataKunjungan()
+    public function dataKunjungan()
     {
-      return $this->hasMany('App\Models\DataKunjungan', 'user_id', 'datkun_id');
+      return $this->hasMany('App\Models\DataKunjungan');
     }
 
-    public function DataHunian()
+    public function dataHunian()
     {
-      return $this->hasMany('App\Models\DataHunian', 'user_id', 'dathuni_id');
+      return $this->hasMany('App\Models\DataHunian');
     }
 
     // one to many (inverse)
-    public function Role()
+    public function role()
     {
-      return $this->belongsTo('App\Models\Role', 'user_id', 'role_id');
+      return $this->belongsTo('App\Models\Role');
     }
 }

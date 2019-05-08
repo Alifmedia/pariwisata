@@ -6,25 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kuliner extends Model
 {
-    protected $table = 'KULINER';
-    protected $primaryKey = 'kul_id';
+    protected $table = 'kuliner';
     public $timestamps = false;
 
     //one to many
-    public function Foto()
+    public function kulinerFoto()
     {
-      return $this->hasMany('App\Models\Foto', 'kul_id', 'foto_id');
+      return $this->hasMany('App\Models\KulinerFoto', 'kuliner_id');
     }
 
     // one to many (inverse)
-    public function TipeKuliner()
+    public function kulinerKategori()
     {
-      return $this->belongsTo('App\Models\TipeKuliner', 'kul_id', 'tipkul_id');
+      return $this->belongsTo('App\Models\KulinerKategori');
     }
 
-    //many to many
-    public function Village()
+    public function village()
     {
-      return $this->belongsToMany('App\Models\Village', 'KUL_VILL' ,'kul_id', 'vill_id');
+      return $this->belongsTo('App\Models\Village');
     }
 }

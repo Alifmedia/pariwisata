@@ -6,29 +6,28 @@ use Illuminate\Database\Eloquent\Model;
 
 class ObjekWisata extends Model
 {
-    protected $table = 'OBJEK_WIS';
-    protected $primaryKey = 'objwis_id';
+    protected $table = 'objwis';
     public $timestamps = false;
 
     //one to many
-    public function DataKunjungan()
+    public function kunjungan()
     {
-      return $this->hasMany('App\Models\DataKunjungan', 'objwis_id', 'datkun_id');
+      return $this->hasMany('App\Models\Kunjungan');
     }
 
-    public function Foto()
+    public function objekWisataFoto()
     {
-      return $this->hasMany('App\Models\Foto', 'objwis_id', 'foto_id');
+      return $this->hasMany('App\Models\ObjekWisataFoto', 'objwis_id');
     }
 
     // one to many (inverse)
-    public function ObjekWisataKat()
+    public function objekWisataKat()
     {
-      return $this->belongsTo('App\Models\ObjekWisataKat', 'objwis_id', 'kat_id');
+      return $this->belongsTo('App\Models\ObjekWisataKat');
     }
 
-    public function Village()
+    public function village()
     {
-      return $this->belongsTo('App\Models\Village', 'objwis_id', 'vill_id');
+      return $this->belongsTo('App\Models\Village');
     }
 }

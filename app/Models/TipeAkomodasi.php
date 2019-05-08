@@ -6,18 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class TipeAkomodasi extends Model
 {
-    protected $table = 'TIPE_AKOM';
-    protected $primaryKey = 'tipe_id';
+    protected $table = 'TIPE_AKOMODASI';
     public $timestamps = false;
 
     //one to many
-    public function Akomodasi()
+    public function akomodasi()
     {
-      return $this->hasMany('App\Models\Akomodasi', 'tipe_id', 'akom_id');
+      return $this->hasMany('App\Models\Akomodasi');
     }
 
-    public function Level()
+    public function levelAkomodasi()
     {
-      return $this->belongsToMany('App\Models\Level', 'tipe_level','tipe_id', 'level_id');
+      return $this->belongsToMany('App\Models\LevelAkomodasi', 'tipe_akomodasi__level_akomodasi');
     }
 }

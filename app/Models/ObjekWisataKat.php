@@ -6,13 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class ObjekWisataKat extends Model
 {
-    protected $table = 'OBJWIS_KATEGORI';
-    protected $primaryKey = 'kat_id';
+    protected $table = 'objwis_kategori';
     public $timestamps = false;
 
     //one to many
-    public function ObjekWisata()
+    public function objekWisata()
     {
-      return $this->hasMany('App\Models\ObjekWisata', 'kat_id', 'objwis_id');
+      return $this->hasMany('App\Models\ObjekWisata');
     }
 }

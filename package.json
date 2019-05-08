@@ -18,5 +18,11 @@
         "lodash": "^4.17.5",
         "popper.js": "^1.12",
         "vue": "^2.5.7"
+    },
+    "dependencies": {
+        "fix-orientation": "^1.0.0",
+        "owl.carousel": "^2.3.4",
+        "quill": "^1.3.6",
+        "simplemde": "^1.11.2"
     }
 }

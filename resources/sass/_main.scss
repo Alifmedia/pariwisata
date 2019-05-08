@@ -70,3 +70,46 @@ body {
   color: $primary-color;
   font-weight: bold;
 }
+
+.required {
+  &::after {
+    content: ' *';
+    color: red;
+  }
+}
+
+.preview-input-image {
+  display: none;
+}
+
+.card-columns-image {
+  .card {
+    border: 0;
+    img {
+      width: 100%;
+      box-shadow: $depth1;
+    }
+  }
+}
+
+#editor {
+  height: auto;
+  min-height: 200px;
+  padding: 6px 12px;
+  .ql-editor.ql-blank::before {
+    font-style: normal;
+    left: 12px;
+  }
+}
+#editor .ql-editor {
+  font-size: 0.9rem;
+  overflow: visible;
+  padding: 0;
+}
+
+/* Specify our own scrolling container */
+#editor-container {
+  height: 100%;
+  min-height: 200px;
+  overflow: visible;
+}

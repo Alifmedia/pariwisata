@@ -7,12 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Prov extends Model
 {
     protected $table = 'PROV';
-    protected $primaryKey = 'prov_id';
     public $timestamps = false;
 
     //one to many
-    public function Regional()
+    public function regional()
     {
-      return $this->hasMany('App\Models\Regional', 'prov_id', 'reg_id');
+      return $this->hasMany('App\Models\Regional');
     }
 }

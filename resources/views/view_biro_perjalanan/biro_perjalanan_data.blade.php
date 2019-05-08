@@ -2,6 +2,7 @@
 
 @section('main-content')
   <div id="data">
+    @include('template.flash')
     <form id="search-form" action="{{ route('biro_perjalanan') }}" method="get">
       <div class="search">
         <div class="form-group">
@@ -18,12 +19,10 @@
         <div class="filter__input__sub">
           <div class="form-group">
             <label for="filter1">Tipe</label>
-            <select class="form-control" id="filter1" name="tipe">
+            <select class="form-control" id="filter1" name="kategori">
               <option value="">Semua</option>
-              @foreach ($filter['tipe'] as $tipe)
-                @if ($tipe->biroper_jenistrav)
-                  <option value="{{ $tipe->biroper_jenistrav }}" {{ app('request')->input('tipe') == $tipe->biroper_jenistrav ? 'selected' : '' }}>{{ $tipe->biroper_jenistrav }}</option>
-                @endif
+              @foreach ($filter['kategori'] as $kategori)
+                <option value="{{ $kategori->kategori }}" {{ app('request')->input('kategori') == $kategori->kategori ? 'selected' : '' }}>{{ $kategori->kategori }}</option>
               @endforeach
             </select>
           </div>
@@ -32,7 +31,7 @@
             <select class="form-control" id="filter2" name="kecamatan">
               <option value="">Semua</option>
               @foreach ($filter['kecamatan'] as $kecamatan)
-                <option value="{{ $kecamatan->dist_id }}" {{ app('request')->input('kecamatan') == $kecamatan->dist_id ? 'selected' : '' }}>{{ $kecamatan->dist_name }}</option>
+                <option value="{{ $kecamatan->id }}" {{ app('request')->input('kecamatan') == $kecamatan->id ? 'selected' : '' }}>{{ $kecamatan->nama }}</option>
               @endforeach
             </select>
           </div>
@@ -42,7 +41,7 @@
               @if ($filter['gampong'])
                 <option value="">Semua</option>
                 @foreach ($filter['gampong'] as $gampong)
-                  <option value="{{ $gampong->vill_id }}" {{ app('request')->input('gampong') == $gampong->vill_id ? 'selected' : '' }}>{{ $gampong->vill_name }}</option>
+                  <option value="{{ $gampong->id }}" {{ app('request')->input('gampong') == $gampong->id ? 'selected' : '' }}>{{ $gampong->nama }}</option>
                 @endforeach
               @else
                 <option value="">Pilih Tipe</option>
@@ -56,10 +55,12 @@
 
     {{-- Table --}}
     <br>
-    <a href="" class="btn btn-danger">
+    <form id="delete-form" action="{{ route('biro_perjalanan.delete') }}" method="POST">
+      @csrf
+    <button type="submit" class="btn btn-danger">
       <i class="fa fa-trash" aria-hidden="true"></i>&nbsp;
       Hapus
-    </a>
+    </button>
     <a href="{{ route('biro_perjalanan.create') }}" class="btn btn-primary">
       <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;
       Tambah
@@ -83,28 +84,24 @@
                 <th scope="col">
                   <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 </th>
-
-
-
-
               </tr>
             </thead>
             <tbody>
               @foreach ($datas as $key => $data)
                 <tr>
-                  <td><input type="checkbox" name="check[]" class="check"></td>
+                  <td><input type="checkbox" name="check[]" class="check" value="{{ $data->id }}"></td>
                   <td>{{$key + 1}}</td>
-                  <td>{{ $data->biroper_nama }}</td>
-                  <td>{{ $data->biroper_alamat }}, {{ $data->Village->vill_name }}</td>
-                  <td>{{ $data->biroper_pemilik }}</td>
-                  <td>{{ $data->biroper_tlpn }}</td>
+                  <td>{{ $data->nama }}</td>
+                  <td>{{ $data->alamat }}, {{ $data->village->nama }}</td>
+                  <td>{{ $data->pemilik }}</td>
+                  <td>{{ $data->tlpn }}</td>
                   <td>
-                    <a href="#">
+                    <a href="{{ route('biro_perjalanan.show', $data->id) }}">
                       <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
                     </a>
                   </td>
                   <td>
-                    <a href="#">
+                    <a href="{{ route('biro_perjalanan.edit', $data->id) }}">
                       <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                     </a>
                   </td>
@@ -116,6 +113,7 @@
 
       </div>
     </div>
+    </form>
     <div class="pagination-wrapper">
       {{ $datas->links() }}
     </div>

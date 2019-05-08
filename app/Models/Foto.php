@@ -7,43 +7,42 @@ use Illuminate\Database\Eloquent\Model;
 class Foto extends Model
 {
   protected $table = 'FOTO';
-  protected $primaryKey = 'foto_id';
   public $timestamps = false;
 
   // one to many (inverse)
   public function Kuliner()
   {
-    return $this->belongsTo('App\Models\Kuliner', 'foto_id', 'kul_id');
+    return $this->belongsTo('App\Models\Kuliner');
   }
 
   public function ObjekWisata()
   {
-    return $this->belongsTo('App\Models\ObjekWisata', 'foto_id', 'objwis_id');
+    return $this->belongsTo('App\Models\ObjekWisata');
   }
 
   public function EkonomiKreatif()
   {
-    return $this->belongsTo('App\Models\EkonomiKreatif', 'foto_id', 'ekokrea_id');
+    return $this->belongsTo('App\Models\EkonomiKreatif');
   }
 
   public function BiroPerjalanan()
   {
-    return $this->belongsTo('App\Models\BiroPerjalanan', 'foto_id', 'biroper_id');
+    return $this->belongsTo('App\Models\BiroPerjalanan');
   }
 
   public function Akomodasi()
   {
-    return $this->belongsTo('App\Models\Akomodasi', 'foto_id', 'akom_id');
+    return $this->belongsTo('App\Models\Akomodasi');
   }
 
   public function Transportasi()
   {
-    return $this->belongsTo('App\Models\Transportasi', 'foto_id', 'trans_id');
+    return $this->belongsTo('App\Models\Transportasi');
   }
 
   public function Souvenir()
   {
-    return $this->belongsTo('App\Models\Souvenir', 'foto_id', 'souv_id');
+    return $this->belongsTo('App\Models\Souvenir');
   }
 
 }

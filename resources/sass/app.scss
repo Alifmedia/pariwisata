@@ -6,8 +6,19 @@
 // Variables
 @import 'variables';
 
+@import '~owl.carousel/dist/assets/owl.carousel.min';
+@import '~owl.carousel/dist/assets/owl.theme.default.min';
+@import '~simplemde/dist/simplemde.min';
+
+@import '~quill/dist/quill.snow.css';
+@import '~quill/dist/quill.bubble.css';
+
+
+
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
 
 //import
 @import 'main';

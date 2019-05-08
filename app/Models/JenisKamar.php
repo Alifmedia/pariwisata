@@ -7,12 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class JenisKamar extends Model
 {
     protected $table = 'JENIS_KAMAR';
-    protected $primaryKey = 'jenkam_id';
     public $timestamps = false;
 
     //many to many
-    public function Akomodasi()
+    public function akomodasi()
     {
-      return $this->belongsToMany('App\Models\Akomodasi', 'DISTRIBUSI_KAMAR', 'jenkam_id' ,'akom_id');
+      return $this->belongsToMany('App\Models\Akomodasi', 'akomodasi__jenis_kamar');
     }
 }

@@ -7,18 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Transportasi extends Model
 {
     protected $table = 'TRANSPORTASI';
-    protected $primaryKey = 'trans_id';
     public $timestamps = false;
 
     //one to many
-    public function Foto()
+    public function transportasiFoto()
     {
-      return $this->hasMany('App\Models\Foto', 'trans_id', 'foto_id');
+      return $this->hasMany('App\Models\TransportasiFoto');
     }
 
     // one to many (inverse)
-    public function Village()
+    public function village()
     {
-      return $this->belongsTo('App\Models\Village', 'trans_id', 'vill_id');
+      return $this->belongsTo('App\Models\Village');
     }
 }

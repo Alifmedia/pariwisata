@@ -7,24 +7,23 @@ use Illuminate\Database\Eloquent\Model;
 class EkonomiKreatif extends Model
 {
     protected $table = 'EKONOMI_KREATIF';
-    protected $primaryKey = 'ekokrea_id';
     public $timestamps = false;
 
     //one to many
-    public function Foto()
+    public function ekonomiKreatifFoto()
     {
-      return $this->hasMany('App\Models\Foto', 'ekokrea_id', 'foto_id');
+      return $this->hasMany('App\Models\EkonomiKreatifFoto');
     }
 
     // one to many (inverse)
-    public function EkokreaBid()
+    public function ekonomiKreatifBidang()
     {
-      return $this->belongsTo('App\Models\EkokreaBid', 'ekokrea_id', 'ekokrea_bid_id');
+      return $this->belongsTo('App\Models\EkonomiKreatifBidang');
     }
 
     //many to many
-    public function Village()
+    public function village()
     {
-      return $this->belongsToMany('App\Models\Village', 'EKOKREA_VILL' ,'ekokrea_id', 'vill_id');
+      return $this->belongsTo('App\Models\Village');
     }
 }

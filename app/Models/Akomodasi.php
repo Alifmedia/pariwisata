@@ -6,41 +6,45 @@ use Illuminate\Database\Eloquent\Model;
 
 class Akomodasi extends Model
 {
-    protected $table = 'AKOMODASI';
-    protected $primaryKey = 'akom_id';
+    protected $table = 'akomodasi';
     public $timestamps = false;
 
-    public function Hotel()
+    public function hotel()
     {
-      return $this->hasMany('App\Models\Hotel', 'akom_id', 'dathuni_id');
+      return $this->hasMany('App\Models\Hotel');
     }
 
     //one to many
-    public function DataHunian()
+    public function dataHunian()
     {
-      return $this->hasMany('App\Models\DataHunian', 'akom_id', 'dathuni_id');
+      return $this->hasMany('App\Models\DataHunian');
     }
 
-    public function Foto()
+    public function akomodasiFoto()
     {
-      return $this->hasMany('App\Models\Foto', 'akom_id', 'foto_id');
+      return $this->hasMany('App\Models\AkomodasiFoto');
     }
 
     // one to many (inverse)
-    public function TipeAkomodasi()
+    public function tipeAkomodasi()
     {
-      return $this->belongsTo('App\Models\TipeAkomodasi', 'akom_id', 'tipe_id');
+      return $this->belongsTo('App\Models\TipeAkomodasi');
     }
 
-    public function Village()
+    public function levelAkomodasi()
     {
-      return $this->belongsTo('App\Models\Village', 'akom_id', 'vill_id');
+      return $this->belongsTo('App\Models\LevelAkomodasi');
+    }
+
+    public function village()
+    {
+      return $this->belongsTo('App\Models\Village');
     }
 
     //many to many
-    public function JenisKamar()
+    public function jenisKamar()
     {
-      return $this->belongsToMany('App\Models\JenisKamar', 'DISTRIBUSI_KAMAR' ,'akom_id', 'jenkam_id');
+      return $this->belongsToMany('App\Models\JenisKamar', 'akomodasi__jenis_kamar');
     }
 
 }
