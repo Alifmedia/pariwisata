@@ -22,7 +22,7 @@
     "dependencies": {
         "fix-orientation": "^1.0.0",
         "owl.carousel": "^2.3.4",
-        "quill": "^1.3.6",
+        "quill": "^1.3.7",
         "simplemde": "^1.11.2"
     }
 }
